@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>My Love Letter 💌</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Aldrich&family=Pixelify+Sans:wght@400..700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+
+  <!-- Floating Hearts -->
+  <div class="hearts"></div>
+
+  <div class="love-letter-page">
+
+    <div class="love-letter">
+
+      <div class="top-heart">♥</div>
+
+      <h1>Torii na Po a?🥺❤️</h1>
+
+      <img
+        src="cat_heart.gif"
+        class="letter-cat"
+        alt="Cute cat"
+      >
+
+      <h2>To My One and Only Babyy❤️</h2>
+
+      <!-- Typing Letter -->
+      <div id="love-text"></div>
+
+      <p class="signature">
+        Nag mamahal at palagi kang mamahalin,<br>
+        <strong>❤️ Babyy moo MWHEHEHHEHEHHEH❤️</strong>
+      </p>
+
+      <button class="back-btn" onclick="window.location.href='index.html'">
+        ← Back
+      </button>
+
+    </div>
+
+  </div>
+
+  <script>
+    const text = `
+BABYY KO❤️,
+
+Gusto ko lang po sabihin sayo na sobrang mahallllll na mahal po kita,
+and walang buwan,linggo,araw,oras,minuto at segundo na wala ka sa puso at isipan ko,
+sorry po kung nasaktan nanaman kita, alam ko po na mali ko and nag sisisi po ako,
+hindi ko man po sinasadya, pero dahil don nasaktan kita at alam ko po na deserve ko at may 
+karapatan po ikaw na magalit ka sakin, pero sana babyy ko wag mo po ako iwan, kasi mahal na 
+mahal po kita, and wala po akong ibang mahal kundi ikaw lang po, at hindi na mag babago yun 
+kahit kailan man, sorry po uli babyy a sana magustuhan mo po itong ginawa ko para sayo,
+sana mapatawad mo na po ako babyy ko, iloveeee youuuu and i will always love youuu even more,
+mula noon, hanggang ngayon, ikaw at ikaw lang babyy ko
+
+I loveeee youuuu veryyyy so much. ❤️
+
+`;
+
+    const loveText = document.getElementById("love-text");
+
+    let index = 0;
+
+    function typeWriter() {
+      if (index < text.length) {
+        loveText.innerHTML +=
+          text.charAt(index) === "\n"
+            ? "<br>"
+            : text.charAt(index);
+
+        index++;
+
+        setTimeout(typeWriter, 35);
+      }
+    }
+
+    typeWriter();
+
+
+    // Create floating hearts
+    const heartsContainer = document.querySelector(".hearts");
+
+    function createHeart() {
+      const heart = document.createElement("div");
+
+      heart.classList.add("floating-heart");
+      heart.innerHTML = "♥";
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration =
+        (4 + Math.random() * 5) + "s";
+
+      heart.style.fontSize =
+        (12 + Math.random() * 20) + "px";
+
+      heartsContainer.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 9000);
+    }
+
+    setInterval(createHeart, 500);
+  </script>
+
+</body>
+</html>
